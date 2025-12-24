@@ -4,13 +4,14 @@
 #define FIREBASE_DISABLE_CLOUD_FUNCTIONS
 #include <Firebase_ESP_Client.h>
 
-#define API_KEY "AIzaSyAvXYZe_B15jG1_sltzEC2YZcYAnzfUv_E"
-#define DATABASE_URL "https://iot-reputasi-default-rtdb.asia-southeast1.firebasedatabase.app/"
+// api key from firebase
+#define API_KEY "1789euiqejhdajknday8e9891"
+// url from firebase
+#define DATABASE_URL "htpp//:wjaidjiajidaadaiojdajdoia.com/"
 
 FirebaseData fbdo;
 FirebaseAuth auth;
 FirebaseConfig config;
-
 
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -18,16 +19,18 @@ FirebaseConfig config;
 #include <WiFi.h>
 
 //WIFI & PASSWORD
-const char* ssid = "Hans";
-const char* password = "123sampe8";
+const char* ssid = "Name wifi";
+const char* password = "Password";
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 #define OLED_RESET -1  
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-// Pin sensor kelembapan tanah (ESP32-C3 ADC)
+// Pin sensor soil moisture (ESP32-C3 ADC)
 const int sensorPin = A0;   // atau GPIO0
+
+// =====================SETUP========================
 
 void setup() {
   Serial.begin(115200);
@@ -50,18 +53,18 @@ void setup() {
   display.display();
   delay(1500);
   
- //sensor kelembapan tanah
+ //sensor moiture
    Serial.println("\n=== SENSOR KELEMBAPAN TANAH ===");
   Serial.println("Membaca data setiap 2 detik...");
 
- //INI BAGIAN WIFI
+ //WIFI
   Serial.println("\nTes Koneksi WiFi ESP32-C3...");
   Serial.print("Menghubungkan ke: ");
   Serial.println(ssid);
 
   WiFi.begin(ssid, password);
 
-  // Tunggu sampai connect
+  
   int counter = 0;
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -94,10 +97,11 @@ void setup() {
 
 }
 
+// ===================LOOP==========================
 
 void loop() {
 
-  // BACA SENSOR 
+  // READ SENSOR 
   int adc = analogRead(sensorPin);
 
   int kelembapan = map(adc, 4095, 1000, 0, 100);
@@ -136,3 +140,4 @@ void loop() {
 
   delay(3000);
 }
+
