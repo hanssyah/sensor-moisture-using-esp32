@@ -5,7 +5,7 @@
 #include <Firebase_ESP_Client.h>
 
 // api key from firebase
-#define API_KEY "1789euiqejhdajknday8e9891"
+#define API_KEY "ur api key from firebase"
 // url from firebase
 #define DATABASE_URL "htpp//:wjaidjiajidaadaiojdajdoia.com/"
 
@@ -140,4 +140,5 @@ void loop() {
 
   delay(3000);
 }
+
 
