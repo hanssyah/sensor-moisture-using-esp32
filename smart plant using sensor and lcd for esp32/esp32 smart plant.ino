@@ -7,7 +7,7 @@
 // api key from firebase
 #define API_KEY "ur api key from firebase"
 // url from firebase
-#define DATABASE_URL "htpp//:wjaidjiajidaadaiojdajdoia.com/"
+#define DATABASE_URL "link web"
 
 FirebaseData fbdo;
 FirebaseAuth auth;
@@ -140,5 +140,6 @@ void loop() {
 
   delay(3000);
 }
+
 
 
